@@ -25,7 +25,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(stock, key) in stocks" :key="key">
+                                <tr v-for="(stock, key) in stocks" :key="key" class="stock-row">
                                     <td>{{ stock.name }}</td>
                                     <td>{{ stock.price }}</td>
                                     <td>{{ stock.quantity }}</td>

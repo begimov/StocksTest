@@ -47475,7 +47475,7 @@ var render = function() {
                   _c(
                     "tbody",
                     _vm._l(_vm.stocks, function(stock, key) {
-                      return _c("tr", { key: key }, [
+                      return _c("tr", { key: key, staticClass: "stock-row" }, [
                         _c("td", [_vm._v(_vm._s(stock.name))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(stock.price))]),
