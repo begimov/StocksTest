@@ -3,10 +3,19 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-white bg-primary">Список валют</div>
+                    <div class="card-header text-white bg-primary">
+                        <div class="row">
+                            <div class="col lead">
+                                Список валют
+                            </div>
+                            <div class="col text-right">
+                                <a href="#" class="btn btn-light btn-sm">Обновить</a>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="card-body">
-                        <table class="table table-bordered">
+                    <div class="card-body p-0">
+                        <table class="table table-bordered mb-0">
                             <thead class="bg-dark text-white">
                                 <tr>
                                     <th scope="col">Название</th>

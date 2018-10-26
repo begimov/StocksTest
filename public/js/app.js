@@ -47373,6 +47373,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -47400,11 +47409,28 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header text-white bg-primary" }, [
-              _vm._v("Список валют")
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col lead" }, [
+                  _vm._v(
+                    "\n                            Список валют\n                        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col text-right" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-light btn-sm",
+                      attrs: { href: "#" }
+                    },
+                    [_vm._v("Обновить")]
+                  )
+                ])
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("table", { staticClass: "table table-bordered" }, [
+            _c("div", { staticClass: "card-body p-0" }, [
+              _c("table", { staticClass: "table table-bordered mb-0" }, [
                 _c("thead", { staticClass: "bg-dark text-white" }, [
                   _c("tr", [
                     _c("th", { attrs: { scope: "col" } }, [_vm._v("Название")]),
