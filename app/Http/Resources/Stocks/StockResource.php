@@ -15,7 +15,9 @@ class StockResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->resource['name']
+            'name' => $this->resource['name'],
+            'price' => round($this->resource['volume']),
+            'quantity' => number_format($this->resource['price']['amount'], 2, '.', ''),
         ];
     }
 }
