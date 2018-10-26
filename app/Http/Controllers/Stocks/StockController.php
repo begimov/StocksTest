@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Stocks;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use App\Repositories\Contracts\Stocks\StockRepository;
 
 class StockController extends Controller
@@ -16,6 +17,13 @@ class StockController extends Controller
     }
     public function index()
     {
-        return $this->stocks->get();
+        if (Cache::has('stocks')) {
+
+            return Cache::get('stocks');
+        }
+        
+        Cache::put('stocks', $stocks = $this->stocks->get(), 60);
+
+        return $stocks;
     }
 }

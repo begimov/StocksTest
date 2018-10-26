@@ -22,9 +22,14 @@ class RemoteStockRepository extends RemoteRepositoryAbstract implements StockRep
             'stocks.json'
         );
 
-        $data = json_decode($response->getBody()->getContents(), true);
+        $data = collect($this->decode($response)['stock']);
 
-        return StockResource::collection(collect($data['stock']))->resolve();
+        return StockResource::collection($data)->resolve();
         
+    }
+
+    protected function decode($response)
+    {
+        return json_decode($response->getBody()->getContents(), true);
     }
 }
