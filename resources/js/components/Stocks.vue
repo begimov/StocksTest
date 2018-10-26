@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="card-body p-0">
-                        <table class="table table-bordered mb-0">
+                        <table class="table-responsive table-bordered mb-0">
                             <thead class="bg-dark text-white">
                                 <tr>
                                     <th scope="col">Название</th>
