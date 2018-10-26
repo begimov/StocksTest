@@ -47391,16 +47391,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             isLoading: false
         };
     },
-    mounted: function mounted() {
-        var _this = this;
 
-        this.isLoading = true;
-        axios.get('/api/stocks').then(function (res) {
-            _this.stocks = res.data;
-            _this.isLoading = false;
-        }).catch(function (err) {
-            //
-        });
+    methods: {
+        getStocks: function getStocks() {
+            var _this = this;
+
+            this.isLoading = true;
+
+            axios.get('/api/stocks').then(function (res) {
+
+                _this.stocks = res.data;
+
+                _this.isLoading = false;
+            }).catch(function (err) {
+                //
+            });
+        }
+    },
+    mounted: function mounted() {
+        this.getStocks();
     }
 });
 
@@ -47420,11 +47429,36 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "card-header text-white bg-primary" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col lead" }, [
+                _vm._v(
+                  "\n                            Список валют\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col text-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-light btn-sm",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.getStocks($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Обновить")]
+                )
+              ])
+            ])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body p-0" }, [
             _c("table", { staticClass: "table table-bordered mb-0" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -47446,28 +47480,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-white bg-primary" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col lead" }, [
-          _vm._v(
-            "\n                            Список валют\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col text-right" }, [
-          _c(
-            "a",
-            { staticClass: "btn btn-light btn-sm", attrs: { href: "#" } },
-            [_vm._v("Обновить")]
-          )
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

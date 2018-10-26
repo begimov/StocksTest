@@ -10,7 +10,7 @@
                                 Список валют
                             </div>
                             <div class="col text-right">
-                                <a href="#" class="btn btn-light btn-sm">Обновить</a>
+                                <a href="#" class="btn btn-light btn-sm" @click.prevent="getStocks">Обновить</a>
                             </div>
                         </div>
                     </div>
@@ -47,14 +47,24 @@
                 isLoading: false
             }
         },
+        methods: {
+            getStocks() {
+
+                this.isLoading = true
+
+                axios.get('/api/stocks').then(res => {
+
+                    this.stocks = res.data
+
+                    this.isLoading = false
+
+                }).catch(err => {
+                    //
+                })
+            }
+        },
         mounted() {
-            this.isLoading = true
-            axios.get('/api/stocks').then(res => {
-                this.stocks = res.data
-                this.isLoading = false
-            }).catch(err => {
-                //
-            })
+            this.getStocks()
         }
     }
 </script>
