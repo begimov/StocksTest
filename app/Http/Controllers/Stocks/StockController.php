@@ -15,15 +15,9 @@ class StockController extends Controller
     {
         $this->stocks = $stocks;
     }
+    
     public function index()
     {
-        if (Cache::has('stocks')) {
-
-            return Cache::get('stocks');
-        }
-        
-        Cache::put('stocks', $stocks = $this->stocks->get(), 60);
-
-        return $stocks;
+        return $this->stocks->get();
     }
 }

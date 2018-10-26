@@ -3,7 +3,7 @@
         <div v-bind:class="{ 'isActive': isLoading, 'loader': true, 'loader-def': true }"></div>
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card" v-if="stocks.length">
                     <div class="card-header text-white bg-primary">
                         <div class="row">
                             <div class="col lead">
@@ -34,7 +34,13 @@
                         </table>
                     </div>
                 </div>
+                <div class="card bg-danger text-white" v-else>
+                    <div class="card-body">
+                        Проблемы с получением списка валют. Пожалуйста подождите.
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
 </template>
@@ -65,6 +71,12 @@
         },
         mounted() {
             this.getStocks()
+
+            setInterval(function () {
+
+                this.getStocks();
+                
+            }.bind(this), 15000); 
         }
     }
 </script>

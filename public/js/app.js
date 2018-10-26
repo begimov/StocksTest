@@ -47383,6 +47383,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47410,6 +47416,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         this.getStocks();
+
+        setInterval(function () {
+
+            this.getStocks();
+        }.bind(this), 15000);
     }
 });
 
@@ -47428,53 +47439,61 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header text-white bg-primary" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col lead" }, [
-                _vm._v(
-                  "\n                            Список валют\n                        "
-                )
+        _vm.stocks.length
+          ? _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header text-white bg-primary" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col lead" }, [
+                    _vm._v(
+                      "\n                            Список валют\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col text-right" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-light btn-sm",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.getStocks($event)
+                          }
+                        }
+                      },
+                      [_vm._v("Обновить")]
+                    )
+                  ])
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col text-right" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-light btn-sm",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.getStocks($event)
-                      }
-                    }
-                  },
-                  [_vm._v("Обновить")]
+              _c("div", { staticClass: "card-body p-0" }, [
+                _c("table", { staticClass: "table table-bordered mb-0" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.stocks, function(stock, key) {
+                      return _c("tr", { key: key }, [
+                        _c("td", [_vm._v(_vm._s(stock.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(stock.price))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(stock.quantity))])
+                      ])
+                    })
+                  )
+                ])
+              ])
+            ])
+          : _c("div", { staticClass: "card bg-danger text-white" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._v(
+                  "\n                    Проблемы с получением списка валют. Пожалуйста подождите.\n                "
                 )
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body p-0" }, [
-            _c("table", { staticClass: "table table-bordered mb-0" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.stocks, function(stock, key) {
-                  return _c("tr", { key: key }, [
-                    _c("td", [_vm._v(_vm._s(stock.name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(stock.price))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(stock.quantity))])
-                  ])
-                })
-              )
-            ])
-          ])
-        ])
       ])
     ])
   ])

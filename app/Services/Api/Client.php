@@ -17,12 +17,11 @@ class Client
     public function get($pathname) {
 
         try {
-            $response = $this->httpClient->request('GET', config('services.api.stocks') . $pathname);
-
-            return $response;
+            return $this->httpClient->request('GET', config('services.api.stocks') . $pathname);
 
         } catch (RequestException $e) {
-            //
+
+            return null;
         }
     }
 }
