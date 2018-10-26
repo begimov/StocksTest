@@ -16,6 +16,6 @@ class StockController extends Controller
     }
     public function index()
     {
-        dd($this->stocks->get());
+        return $this->stocks->get();
     }
 }
