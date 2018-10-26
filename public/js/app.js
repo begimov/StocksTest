@@ -47382,18 +47382,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            stocks: []
+            stocks: [],
+            isLoading: false
         };
     },
     mounted: function mounted() {
         var _this = this;
 
+        this.isLoading = true;
         axios.get('/api/stocks').then(function (res) {
             _this.stocks = res.data;
+            _this.isLoading = false;
         }).catch(function (err) {
             //
         });
@@ -47409,6 +47413,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container my-5" }, [
+    _c("div", {
+      class: { isActive: _vm.isLoading, loader: true, "loader-def": true }
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card" }, [

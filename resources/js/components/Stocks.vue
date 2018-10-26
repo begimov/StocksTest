@@ -1,5 +1,6 @@
 <template>
     <div class="container my-5">
+        <div v-bind:class="{ 'isActive': isLoading, 'loader': true, 'loader-def': true }"></div>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
@@ -42,12 +43,15 @@
     export default {
         data() {
             return {
-                stocks: []
+                stocks: [],
+                isLoading: false
             }
         },
         mounted() {
+            this.isLoading = true
             axios.get('/api/stocks').then(res => {
                 this.stocks = res.data
+                this.isLoading = false
             }).catch(err => {
                 //
             })
