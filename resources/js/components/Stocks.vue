@@ -16,22 +16,24 @@
                     </div>
 
                     <div class="card-body p-0">
-                        <table class="table-responsive table-bordered mb-0">
-                            <thead class="bg-dark text-white">
-                                <tr>
-                                    <th scope="col">Название</th>
-                                    <th scope="col">Цена</th>
-                                    <th scope="col">Количество</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(stock, key) in stocks" :key="key" class="stock-row">
-                                    <td>{{ stock.name }}</td>
-                                    <td>{{ stock.price }}</td>
-                                    <td>{{ stock.quantity }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0">
+                                <thead class="bg-dark text-white">
+                                    <tr>
+                                        <th scope="col">Название</th>
+                                        <th scope="col">Цена</th>
+                                        <th scope="col">Количество</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(stock, key) in stocks" :key="key" class="stock-row">
+                                        <td>{{ stock.name }}</td>
+                                        <td>{{ stock.price }}</td>
+                                        <td>{{ stock.quantity }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div class="card bg-danger text-white" v-else>
