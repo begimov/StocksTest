@@ -3,6 +3,7 @@
 namespace App\Services\Api;
 
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Exception\RequestException;
 
 class Client
 {
@@ -13,10 +14,15 @@ class Client
         $this->httpClient = $httpClient;
     }
 
-    public function get() {
+    public function get($pathname) {
 
-        $response = $this->httpClient->request('GET', config('services.stocks.api'));
+        try {
+            $response = $this->httpClient->request('GET', config('services.api.stocks') . $pathname);
 
-        return json_decode($response->getBody()->getContents());
+            return $response;
+
+        } catch (RequestException $e) {
+            //
+        }
     }
 }

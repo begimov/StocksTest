@@ -17,6 +17,13 @@ class RemoteStockRepository extends RemoteRepositoryAbstract implements StockRep
 
     public function get()
     {
-        return $this->client->get();
+        $response = $this->client->get(
+            'stocks.json'
+        );
+
+        $data = json_decode($response->getBody()->getContents(), true);
+
+        return $data;
+        
     }
 }

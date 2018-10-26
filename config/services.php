@@ -40,8 +40,8 @@ return [
         ],
     ],
 
-    'stocks' => [
-        'api' => 'http://phisix-api3.appspot.com/stocks.json'
+    'api' => [
+        'stocks' => 'http://phisix-api3.appspot.com/'
     ]
 
 ];
