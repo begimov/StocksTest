@@ -17,6 +17,6 @@ class RemoteStockRepository extends RemoteRepositoryAbstract implements StockRep
 
     public function get()
     {
-        dd($this->client->get());
+        return $this->client->get();
     }
 }
