@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5">
+    <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
@@ -24,10 +24,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>//</td>
-                                    <td>//</td>
-                                    <td>//</td>
+                                <tr v-for="(stock, key) in stocks" :key="key">
+                                    <td>{{ stock.name }}</td>
+                                    <td>{{ stock.price }}</td>
+                                    <td>{{ stock.quantity }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -40,8 +40,17 @@
 
 <script>
     export default {
+        data() {
+            return {
+                stocks: []
+            }
+        },
         mounted() {
-            //
+            axios.get('/api/stocks').then(res => {
+                this.stocks = res.data
+            }).catch(err => {
+                //
+            })
         }
     }
 </script>

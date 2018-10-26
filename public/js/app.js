@@ -47384,8 +47384,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            stocks: []
+        };
+    },
     mounted: function mounted() {
-        //
+        var _this = this;
+
+        axios.get('/api/stocks').then(function (res) {
+            _this.stocks = res.data;
+        }).catch(function (err) {
+            //
+        });
     }
 });
 
@@ -47397,65 +47408,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container my-5" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body p-0" }, [
+            _c("table", { staticClass: "table table-bordered mb-0" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.stocks, function(stock, key) {
+                  return _c("tr", { key: key }, [
+                    _c("td", [_vm._v(_vm._s(stock.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(stock.price))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(stock.quantity))])
+                  ])
+                })
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt-5" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-white bg-primary" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col lead" }, [
-                  _vm._v(
-                    "\n                            Список валют\n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col text-right" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-light btn-sm",
-                      attrs: { href: "#" }
-                    },
-                    [_vm._v("Обновить")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body p-0" }, [
-              _c("table", { staticClass: "table table-bordered mb-0" }, [
-                _c("thead", { staticClass: "bg-dark text-white" }, [
-                  _c("tr", [
-                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Название")]),
-                    _vm._v(" "),
-                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Цена")]),
-                    _vm._v(" "),
-                    _c("th", { attrs: { scope: "col" } }, [
-                      _vm._v("Количество")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("tbody", [
-                  _c("tr", [
-                    _c("td", [_vm._v("//")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("//")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("//")])
-                  ])
-                ])
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "card-header text-white bg-primary" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col lead" }, [
+          _vm._v(
+            "\n                            Список валют\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col text-right" }, [
+          _c(
+            "a",
+            { staticClass: "btn btn-light btn-sm", attrs: { href: "#" } },
+            [_vm._v("Обновить")]
+          )
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "bg-dark text-white" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Название")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Цена")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Количество")])
       ])
     ])
   }
