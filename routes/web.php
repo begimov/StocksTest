@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'Stocks\StockController@index');
+Route::get('/', 'HomeController@index');
